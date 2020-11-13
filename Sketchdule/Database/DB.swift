@@ -11,24 +11,24 @@ struct DB {
     
     let realm = try! Realm()
     
-//    func addSubject(subject: CourseViewModel) {
-//        try! realm.write({
-//            realm.delete(realm.objects(SubjectDB.self))
-//        })
-//        for s in subject.courseList {
-//            let temp = SubjectDB()
-//            temp.code = s.courseId
-//            temp.name = s.courseName
-//            temp.location = s.professor
-//            temp.startTime = s.startTime
-//            temp.endTime = s.endTime
-//            temp.day = s.courseDay.rawValue
-//            
-//            try! realm.write({
-//                realm.add(temp)
-//            })
-//        }
-//    }
+    func addSubject(subject: ElliotableViewModel) {
+        try! realm.write({
+            realm.delete(realm.objects(SubjectDB.self))
+        })
+        for s in subject.courseList {
+            let temp = SubjectDB()
+            temp.code = s.courseId
+            temp.name = s.courseName
+            temp.location = s.professor
+            temp.startTime = s.startTime
+            temp.endTime = s.endTime
+            temp.day = s.courseDay.rawValue
+            
+            try! realm.write({
+                realm.add(temp)
+            })
+        }
+    }
     
     func getAnotherSubject() -> [Schedule] {
         let inFormatter = DateFormatter()

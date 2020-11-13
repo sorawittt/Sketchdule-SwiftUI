@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var selectSubject: SelectSubjectViewModel
     var body: some View {
         VStack {
             Spacer()
@@ -10,17 +11,16 @@ struct ContentView: View {
 }
 
 struct BottomBar : View {
-//    @EnvironmentObject var selectSubject: SelectSubjectViewModel
-    
+    @EnvironmentObject var selectSubject: SelectSubjectViewModel
     var body: some View {
         TabView {
-            TodayScheduleView()
+            TodayScheduleView().environmentObject(selectSubject)
                 .tabItem{
                     Image(systemName: "calendar")
                     Text("ตารางเรียน")
             }
             
-//            CreateScheduleView()
+            CreateScheduleView().environmentObject(selectSubject)
                 .tabItem{
                     Image(systemName: "calendar.badge.plus")
                     Text("สร้างตารางเรียน")

@@ -21,7 +21,7 @@ struct SubjectCard: View {
         }
         .frame(width: width * 0.9,alignment: .leading)
         .padding(10)
-        .background(Color(UIColor.systemGray4))
+        .background(Color(UIColor.systemGray5))
         .cornerRadius(10)
     }
 }

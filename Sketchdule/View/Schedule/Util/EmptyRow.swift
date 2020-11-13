@@ -8,7 +8,7 @@ struct EmptyRow: View {
             .font(.system(size: 18))
             .frame(width: width * 0.9, height: 50, alignment: .center)
             .padding(10)
-            .background(Color(UIColor.systemGray4))
+            .background(Color(UIColor.systemGray5))
             .cornerRadius(10)
     }
 }
