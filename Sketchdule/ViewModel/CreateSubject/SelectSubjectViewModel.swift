@@ -2,6 +2,8 @@ import Foundation
 import Combine
 
 class SelectSubjectViewModel: ObservableObject {
+    static let shared = SelectSubjectViewModel()
+    
     @Published var selectSubject = [Subject]()
    
     private var cancellables = Set<AnyCancellable>()
@@ -39,3 +41,4 @@ class SelectSubjectViewModel: ObservableObject {
     }
     
 }
+

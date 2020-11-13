@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct AddSubjectView: View {
-    @EnvironmentObject var selectSubject: SelectSubjectViewModel
+    @ObservedObject var selectSubject = SelectSubjectViewModel.shared
     @ObservedObject var subjects = AddSubjectViewModel()
     
     var body: some View {

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SearchSubjectRow: View {
     var subjectCell: Subject
-    @EnvironmentObject var selectSubjectVM: SelectSubjectViewModel
+    @ObservedObject var selectSubjectVM = SelectSubjectViewModel.shared
     private let width = UIScreen.main.bounds.width
     
     var body: some View {

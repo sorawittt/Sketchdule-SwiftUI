@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CreateScheduleView: View {
     @State var showingSheet = false
-    @EnvironmentObject var selectSubjectVM: SelectSubjectViewModel
+    @ObservedObject var selectSubjectVM = SelectSubjectViewModel.shared
     @State private var isEditable = false
     @State private var buttonDisable = true
     @State private var action: Int? = 0
@@ -75,6 +75,6 @@ struct CreateScheduleView: View {
 
 struct CreateScheduleView_Previews: PreviewProvider {
     static var previews: some View {
-            CreateScheduleView().environmentObject(SelectSubjectViewModel())
+        CreateScheduleView()
     }
 }

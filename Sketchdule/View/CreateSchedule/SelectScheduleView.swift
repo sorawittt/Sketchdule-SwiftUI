@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SelectScheduleView: View {
     @State private var showingAlert = false
-    @EnvironmentObject var selectSubjectVM: SelectSubjectViewModel
+    @ObservedObject var selectSubjectVM = SelectSubjectViewModel.shared
     let db = DB()
     
     let timetable = ["แบบที่ 1", "แบบที่ 2"]

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SelectSubjectRow: View {
     var subjectCell: Subject
-    @EnvironmentObject var selectSubjectVM: SelectSubjectViewModel
+    @ObservedObject var selectSubject = SelectSubjectViewModel.shared
     @Environment(\.editMode) var editMode
     
     

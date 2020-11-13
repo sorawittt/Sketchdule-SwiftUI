@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var selectSubject: SelectSubjectViewModel
+//    @EnvironmentObject var selectSubject: SelectSubjectViewModel
     var body: some View {
         VStack {
             Spacer()
@@ -11,29 +11,29 @@ struct ContentView: View {
 }
 
 struct BottomBar : View {
-    @EnvironmentObject var selectSubject: SelectSubjectViewModel
+    @ObservedObject private var selectSubject = SelectSubjectViewModel.shared
     var body: some View {
         TabView {
-            TodayScheduleView().environmentObject(selectSubject)
+            TodayScheduleView()
                 .tabItem{
                     Image(systemName: "calendar")
                     Text("ตารางเรียน")
             }
             
-            CreateScheduleView().environmentObject(selectSubject)
+            CreateScheduleView(selectSubjectVM: selectSubject)
                 .tabItem{
                     Image(systemName: "calendar.badge.plus")
                     Text("สร้างตารางเรียน")
             }
             
             
-            HistoryView().environmentObject(selectSubject)
+            HistoryView()
                 .tabItem{
                     Image(systemName: "clock")
                     Text("ประวัติ")
             }
             
-            SettingView().environmentObject(selectSubject)
+            SettingView()
                 .tabItem{
                     Image(systemName: "ellipsis")
                     Text("ตั้งค่า")
@@ -46,6 +46,6 @@ struct BottomBar : View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(SelectSubjectViewModel())
+        ContentView()
     }
 }
