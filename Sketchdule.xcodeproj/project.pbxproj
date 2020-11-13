@@ -1,0 +1,489 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		32CF1AFB0B2F2051CDB7FB7F /* Pods_Sketchdule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 411B2CBFF8C604D4521F820A /* Pods_Sketchdule.framework */; };
+		7B1EC540255EE542001B6A4F /* SketchduleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC53F255EE542001B6A4F /* SketchduleApp.swift */; };
+		7B1EC542255EE542001B6A4F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC541255EE542001B6A4F /* ContentView.swift */; };
+		7B1EC544255EE544001B6A4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B1EC543255EE544001B6A4F /* Assets.xcassets */; };
+		7B1EC547255EE544001B6A4F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B1EC546255EE544001B6A4F /* Preview Assets.xcassets */; };
+		7B1EC55C255EE648001B6A4F /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC55B255EE648001B6A4F /* Subject.swift */; };
+		7B1EC561255EE67A001B6A4F /* SubjectDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC560255EE67A001B6A4F /* SubjectDB.swift */; };
+		7B1EC565255EE6F1001B6A4F /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC564255EE6F1001B6A4F /* DB.swift */; };
+		7B1EC569255EE7DC001B6A4F /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC568255EE7DC001B6A4F /* Schedule.swift */; };
+		7B1EC56E255EEBAD001B6A4F /* TodayScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC56D255EEBAD001B6A4F /* TodayScheduleViewModel.swift */; };
+		7B1EC574255EFA69001B6A4F /* TodayScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC573255EFA69001B6A4F /* TodayScheduleView.swift */; };
+		7B1EC578255EFA8F001B6A4F /* AllScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC577255EFA8F001B6A4F /* AllScheduleView.swift */; };
+		7B1EC57B255EFACF001B6A4F /* EmptyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC57A255EFACF001B6A4F /* EmptyRow.swift */; };
+		7B1EC57E255EFB0A001B6A4F /* SubjectCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC57D255EFB0A001B6A4F /* SubjectCard.swift */; };
+		7B1EC585255EFBA5001B6A4F /* AllScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC584255EFBA5001B6A4F /* AllScheduleViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		411B2CBFF8C604D4521F820A /* Pods_Sketchdule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sketchdule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B1EC53C255EE542001B6A4F /* Sketchdule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sketchdule.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B1EC53F255EE542001B6A4F /* SketchduleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SketchduleApp.swift; sourceTree = "<group>"; };
+		7B1EC541255EE542001B6A4F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7B1EC543255EE544001B6A4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7B1EC546255EE544001B6A4F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7B1EC548255EE544001B6A4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B1EC55B255EE648001B6A4F /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		7B1EC560255EE67A001B6A4F /* SubjectDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDB.swift; sourceTree = "<group>"; };
+		7B1EC564255EE6F1001B6A4F /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
+		7B1EC568255EE7DC001B6A4F /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		7B1EC56D255EEBAD001B6A4F /* TodayScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayScheduleViewModel.swift; sourceTree = "<group>"; };
+		7B1EC573255EFA69001B6A4F /* TodayScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayScheduleView.swift; sourceTree = "<group>"; };
+		7B1EC577255EFA8F001B6A4F /* AllScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllScheduleView.swift; sourceTree = "<group>"; };
+		7B1EC57A255EFACF001B6A4F /* EmptyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRow.swift; sourceTree = "<group>"; };
+		7B1EC57D255EFB0A001B6A4F /* SubjectCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCard.swift; sourceTree = "<group>"; };
+		7B1EC584255EFBA5001B6A4F /* AllScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllScheduleViewModel.swift; sourceTree = "<group>"; };
+		9710339DF2F6D5E95B550843 /* Pods-Sketchdule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sketchdule.debug.xcconfig"; path = "Target Support Files/Pods-Sketchdule/Pods-Sketchdule.debug.xcconfig"; sourceTree = "<group>"; };
+		BA26F142D476E2A9BFB3ED90 /* Pods-Sketchdule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sketchdule.release.xcconfig"; path = "Target Support Files/Pods-Sketchdule/Pods-Sketchdule.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7B1EC539255EE542001B6A4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32CF1AFB0B2F2051CDB7FB7F /* Pods_Sketchdule.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6929B5EB3B8A61E818FC3611 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9710339DF2F6D5E95B550843 /* Pods-Sketchdule.debug.xcconfig */,
+				BA26F142D476E2A9BFB3ED90 /* Pods-Sketchdule.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7B1EC533255EE542001B6A4F = {
+			isa = PBXGroup;
+			children = (
+				7B1EC53E255EE542001B6A4F /* Sketchdule */,
+				7B1EC53D255EE542001B6A4F /* Products */,
+				6929B5EB3B8A61E818FC3611 /* Pods */,
+				A335847E5A83A9D834BA7019 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7B1EC53D255EE542001B6A4F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B1EC53C255EE542001B6A4F /* Sketchdule.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B1EC53E255EE542001B6A4F /* Sketchdule */ = {
+			isa = PBXGroup;
+			children = (
+				7B1EC571255EFA34001B6A4F /* View */,
+				7B1EC543255EE544001B6A4F /* Assets.xcassets */,
+				7B1EC541255EE542001B6A4F /* ContentView.swift */,
+				7B1EC55F255EE65D001B6A4F /* Database */,
+				7B1EC548255EE544001B6A4F /* Info.plist */,
+				7B1EC55A255EE612001B6A4F /* Model */,
+				7B1EC545255EE544001B6A4F /* Preview Content */,
+				7B1EC53F255EE542001B6A4F /* SketchduleApp.swift */,
+				7B1EC567255EE71E001B6A4F /* ViewModel */,
+			);
+			path = Sketchdule;
+			sourceTree = "<group>";
+		};
+		7B1EC545255EE544001B6A4F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				7B1EC546255EE544001B6A4F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7B1EC55A255EE612001B6A4F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B1EC55B255EE648001B6A4F /* Subject.swift */,
+				7B1EC568255EE7DC001B6A4F /* Schedule.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7B1EC55F255EE65D001B6A4F /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				7B1EC560255EE67A001B6A4F /* SubjectDB.swift */,
+				7B1EC564255EE6F1001B6A4F /* DB.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		7B1EC567255EE71E001B6A4F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7B1EC56C255EEB94001B6A4F /* Schedule */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7B1EC56C255EEB94001B6A4F /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				7B1EC56D255EEBAD001B6A4F /* TodayScheduleViewModel.swift */,
+				7B1EC584255EFBA5001B6A4F /* AllScheduleViewModel.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		7B1EC571255EFA34001B6A4F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7B1EC572255EFA45001B6A4F /* Schedule */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7B1EC572255EFA45001B6A4F /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				7B1EC573255EFA69001B6A4F /* TodayScheduleView.swift */,
+				7B1EC577255EFA8F001B6A4F /* AllScheduleView.swift */,
+				7B1EC57A255EFACF001B6A4F /* EmptyRow.swift */,
+				7B1EC57D255EFB0A001B6A4F /* SubjectCard.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		A335847E5A83A9D834BA7019 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				411B2CBFF8C604D4521F820A /* Pods_Sketchdule.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7B1EC53B255EE542001B6A4F /* Sketchdule */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B1EC54B255EE544001B6A4F /* Build configuration list for PBXNativeTarget "Sketchdule" */;
+			buildPhases = (
+				28B93A082FB7A1D57DAC666A /* [CP] Check Pods Manifest.lock */,
+				7B1EC538255EE542001B6A4F /* Sources */,
+				7B1EC539255EE542001B6A4F /* Frameworks */,
+				7B1EC53A255EE542001B6A4F /* Resources */,
+				D36765B825906ACE57BC5D23 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sketchdule;
+			productName = Sketchdule;
+			productReference = 7B1EC53C255EE542001B6A4F /* Sketchdule.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7B1EC534255EE542001B6A4F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1210;
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					7B1EC53B255EE542001B6A4F = {
+						CreatedOnToolsVersion = 12.1;
+					};
+				};
+			};
+			buildConfigurationList = 7B1EC537255EE542001B6A4F /* Build configuration list for PBXProject "Sketchdule" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7B1EC533255EE542001B6A4F;
+			productRefGroup = 7B1EC53D255EE542001B6A4F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7B1EC53B255EE542001B6A4F /* Sketchdule */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7B1EC53A255EE542001B6A4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B1EC547255EE544001B6A4F /* Preview Assets.xcassets in Resources */,
+				7B1EC544255EE544001B6A4F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		28B93A082FB7A1D57DAC666A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sketchdule-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D36765B825906ACE57BC5D23 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sketchdule/Pods-Sketchdule-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sketchdule/Pods-Sketchdule-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sketchdule/Pods-Sketchdule-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7B1EC538255EE542001B6A4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B1EC569255EE7DC001B6A4F /* Schedule.swift in Sources */,
+				7B1EC561255EE67A001B6A4F /* SubjectDB.swift in Sources */,
+				7B1EC56E255EEBAD001B6A4F /* TodayScheduleViewModel.swift in Sources */,
+				7B1EC574255EFA69001B6A4F /* TodayScheduleView.swift in Sources */,
+				7B1EC542255EE542001B6A4F /* ContentView.swift in Sources */,
+				7B1EC55C255EE648001B6A4F /* Subject.swift in Sources */,
+				7B1EC565255EE6F1001B6A4F /* DB.swift in Sources */,
+				7B1EC585255EFBA5001B6A4F /* AllScheduleViewModel.swift in Sources */,
+				7B1EC578255EFA8F001B6A4F /* AllScheduleView.swift in Sources */,
+				7B1EC57B255EFACF001B6A4F /* EmptyRow.swift in Sources */,
+				7B1EC540255EE542001B6A4F /* SketchduleApp.swift in Sources */,
+				7B1EC57E255EFB0A001B6A4F /* SubjectCard.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7B1EC549255EE544001B6A4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7B1EC54A255EE544001B6A4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7B1EC54C255EE544001B6A4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9710339DF2F6D5E95B550843 /* Pods-Sketchdule.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Sketchdule/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Sketchdule/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = sorawittt.Sketchdule;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7B1EC54D255EE544001B6A4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA26F142D476E2A9BFB3ED90 /* Pods-Sketchdule.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Sketchdule/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Sketchdule/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = sorawittt.Sketchdule;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7B1EC537255EE542001B6A4F /* Build configuration list for PBXProject "Sketchdule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B1EC549255EE544001B6A4F /* Debug */,
+				7B1EC54A255EE544001B6A4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B1EC54B255EE544001B6A4F /* Build configuration list for PBXNativeTarget "Sketchdule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B1EC54C255EE544001B6A4F /* Debug */,
+				7B1EC54D255EE544001B6A4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7B1EC534255EE542001B6A4F /* Project object */;
+}
