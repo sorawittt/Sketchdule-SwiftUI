@@ -34,6 +34,11 @@
 		7B1EC5AB255F1BC5001B6A4F /* SelectScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5AA255F1BC5001B6A4F /* SelectScheduleView.swift */; };
 		7B1EC5AF255F1C7D001B6A4F /* MockTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5AE255F1C7D001B6A4F /* MockTimetable.swift */; };
 		7B1EC5B3255F1C9E001B6A4F /* Mocktable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5B2255F1C9E001B6A4F /* Mocktable.swift */; };
+		7B1EC5B8255F20D1001B6A4F /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5B7255F20D1001B6A4F /* HistoryView.swift */; };
+		7B1EC5BC255F2106001B6A4F /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5BB255F2106001B6A4F /* TimetableView.swift */; };
+		7B1EC5C1255F21CD001B6A4F /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5C0255F21CD001B6A4F /* SettingView.swift */; };
+		7B1EC5C6255F2222001B6A4F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5C5255F2222001B6A4F /* Login.swift */; };
+		7B1EC5CA255F2240001B6A4F /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5C9255F2240001B6A4F /* Register.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +71,11 @@
 		7B1EC5AA255F1BC5001B6A4F /* SelectScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectScheduleView.swift; sourceTree = "<group>"; };
 		7B1EC5AE255F1C7D001B6A4F /* MockTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTimetable.swift; sourceTree = "<group>"; };
 		7B1EC5B2255F1C9E001B6A4F /* Mocktable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocktable.swift; sourceTree = "<group>"; };
+		7B1EC5B7255F20D1001B6A4F /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		7B1EC5BB255F2106001B6A4F /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
+		7B1EC5C0255F21CD001B6A4F /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		7B1EC5C5255F2222001B6A4F /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		7B1EC5C9255F2240001B6A4F /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		9710339DF2F6D5E95B550843 /* Pods-Sketchdule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sketchdule.debug.xcconfig"; path = "Target Support Files/Pods-Sketchdule/Pods-Sketchdule.debug.xcconfig"; sourceTree = "<group>"; };
 		BA26F142D476E2A9BFB3ED90 /* Pods-Sketchdule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sketchdule.release.xcconfig"; path = "Target Support Files/Pods-Sketchdule/Pods-Sketchdule.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +183,9 @@
 		7B1EC571255EFA34001B6A4F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7B1EC5C4255F2215001B6A4F /* Login */,
+				7B1EC5BF255F21B6001B6A4F /* Setting */,
+				7B1EC5B6255F20BB001B6A4F /* History */,
 				7B1EC595255F0D3C001B6A4F /* CreateSchedule */,
 				7B1EC572255EFA45001B6A4F /* Schedule */,
 			);
@@ -229,6 +242,32 @@
 				7B1EC57A255EFACF001B6A4F /* EmptyRow.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		7B1EC5B6255F20BB001B6A4F /* History */ = {
+			isa = PBXGroup;
+			children = (
+				7B1EC5B7255F20D1001B6A4F /* HistoryView.swift */,
+				7B1EC5BB255F2106001B6A4F /* TimetableView.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		7B1EC5BF255F21B6001B6A4F /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				7B1EC5C0255F21CD001B6A4F /* SettingView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		7B1EC5C4255F2215001B6A4F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7B1EC5C5255F2222001B6A4F /* Login.swift */,
+				7B1EC5C9255F2240001B6A4F /* Register.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		A335847E5A83A9D834BA7019 /* Frameworks */ = {
@@ -358,7 +397,11 @@
 				7B1EC561255EE67A001B6A4F /* SubjectDB.swift in Sources */,
 				7B1EC5B3255F1C9E001B6A4F /* Mocktable.swift in Sources */,
 				7B1EC590255F0C4F001B6A4F /* SelectSubjectRow.swift in Sources */,
+				7B1EC5CA255F2240001B6A4F /* Register.swift in Sources */,
 				7B1EC56E255EEBAD001B6A4F /* TodayScheduleViewModel.swift in Sources */,
+				7B1EC5C6255F2222001B6A4F /* Login.swift in Sources */,
+				7B1EC5B8255F20D1001B6A4F /* HistoryView.swift in Sources */,
+				7B1EC5BC255F2106001B6A4F /* TimetableView.swift in Sources */,
 				7B1EC59A255F0E7B001B6A4F /* SearchBar.swift in Sources */,
 				7B1EC58D255F0BE9001B6A4F /* CreateScheduleView.swift in Sources */,
 				7B1EC5A8255F193C001B6A4F /* ElliotableModel.swift in Sources */,
@@ -371,6 +414,7 @@
 				7B1EC593255F0D31001B6A4F /* AddSubjectViewModel.swift in Sources */,
 				7B1EC565255EE6F1001B6A4F /* DB.swift in Sources */,
 				7B1EC5AF255F1C7D001B6A4F /* MockTimetable.swift in Sources */,
+				7B1EC5C1255F21CD001B6A4F /* SettingView.swift in Sources */,
 				7B1EC585255EFBA5001B6A4F /* AllScheduleViewModel.swift in Sources */,
 				7B1EC578255EFA8F001B6A4F /* AllScheduleView.swift in Sources */,
 				7B1EC57B255EFACF001B6A4F /* EmptyRow.swift in Sources */,

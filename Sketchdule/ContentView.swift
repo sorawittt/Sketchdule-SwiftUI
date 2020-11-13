@@ -27,13 +27,13 @@ struct BottomBar : View {
             }
             
             
-//            HistoryView()
+            HistoryView().environmentObject(selectSubject)
                 .tabItem{
                     Image(systemName: "clock")
                     Text("ประวัติ")
             }
             
-//            SettingView()
+            SettingView().environmentObject(selectSubject)
                 .tabItem{
                     Image(systemName: "ellipsis")
                     Text("ตั้งค่า")
@@ -46,6 +46,6 @@ struct BottomBar : View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(SelectSubjectViewModel())
     }
 }
