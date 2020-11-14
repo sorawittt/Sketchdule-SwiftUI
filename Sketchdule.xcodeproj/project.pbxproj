@@ -39,6 +39,8 @@
 		7B1EC5C1255F21CD001B6A4F /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5C0255F21CD001B6A4F /* SettingView.swift */; };
 		7B1EC5C6255F2222001B6A4F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5C5255F2222001B6A4F /* Login.swift */; };
 		7B1EC5CA255F2240001B6A4F /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5C9255F2240001B6A4F /* Register.swift */; };
+		7BFBC5E8255FDB7A0059BDB2 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBC5E7255FDB7A0059BDB2 /* RegisterViewModel.swift */; };
+		7BFBC5EC255FE1E50059BDB2 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBC5EB255FE1E50059BDB2 /* Student.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,8 @@
 		7B1EC5C0255F21CD001B6A4F /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		7B1EC5C5255F2222001B6A4F /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		7B1EC5C9255F2240001B6A4F /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		7BFBC5E7255FDB7A0059BDB2 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		7BFBC5EB255FE1E50059BDB2 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		9710339DF2F6D5E95B550843 /* Pods-Sketchdule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sketchdule.debug.xcconfig"; path = "Target Support Files/Pods-Sketchdule/Pods-Sketchdule.debug.xcconfig"; sourceTree = "<group>"; };
 		BA26F142D476E2A9BFB3ED90 /* Pods-Sketchdule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sketchdule.release.xcconfig"; path = "Target Support Files/Pods-Sketchdule/Pods-Sketchdule.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +153,7 @@
 				7B1EC55B255EE648001B6A4F /* Subject.swift */,
 				7B1EC568255EE7DC001B6A4F /* Schedule.swift */,
 				7B1EC5A7255F193C001B6A4F /* ElliotableModel.swift */,
+				7BFBC5EB255FE1E50059BDB2 /* Student.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 		7B1EC567255EE71E001B6A4F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				7BFBC5E6255FDB270059BDB2 /* LoginAndRegis */,
 				7B1EC587255F0AE2001B6A4F /* CreateSubject */,
 				7B1EC56C255EEB94001B6A4F /* Schedule */,
 			);
@@ -268,6 +274,14 @@
 				7B1EC5C9255F2240001B6A4F /* Register.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		7BFBC5E6255FDB270059BDB2 /* LoginAndRegis */ = {
+			isa = PBXGroup;
+			children = (
+				7BFBC5E7255FDB7A0059BDB2 /* RegisterViewModel.swift */,
+			);
+			path = LoginAndRegis;
 			sourceTree = "<group>";
 		};
 		A335847E5A83A9D834BA7019 /* Frameworks */ = {
@@ -392,6 +406,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B1EC569255EE7DC001B6A4F /* Schedule.swift in Sources */,
+				7BFBC5EC255FE1E50059BDB2 /* Student.swift in Sources */,
+				7BFBC5E8255FDB7A0059BDB2 /* RegisterViewModel.swift in Sources */,
 				7B1EC5A5255F187F001B6A4F /* ElliotableViewModel.swift in Sources */,
 				7B1EC597255F0E2B001B6A4F /* AddSubjectView.swift in Sources */,
 				7B1EC561255EE67A001B6A4F /* SubjectDB.swift in Sources */,

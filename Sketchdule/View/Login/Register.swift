@@ -1,19 +1,19 @@
 import SwiftUI
 
 struct Register: View {
-    @State var id = ""
     @State var showResult = false
+    @ObservedObject var regisVM = RegisterViewModel()
     
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("รหัสนิสิต")) {
                     HStack {
-                        TextField("รหัสนิสิต", text: $id).font(.system(size: 17)).keyboardType(.numberPad)
+                        TextField("รหัสนิสิต", text: $regisVM.studentID).font(.system(size: 17)).keyboardType(.numberPad)
                         
-                        if (id.count == 10) {
+                        if (regisVM.studentID.count == 10) {
                             Button(action: {
-                                
+                                regisVM.getDetail()
                             }) {
                                 Image(systemName: "magnifyingglass.circle.fill")
                             }
@@ -23,24 +23,29 @@ struct Register: View {
                 
                 Section(header: Text("ผลการค้นหา")) {
                     HStack {
-                        Text("ชื่อ")
+                        Text("ชื่อ").foregroundColor(Color(UIColor.systemGray2))
                         Spacer()
-                        Text("ชื่อ")
+                        Text(regisVM.currentStudent.firstname)
                     }.font(.system(size: 17))
                     HStack {
-                        Text("นามสกุล")
+                        Text("นามสกุล").foregroundColor(Color(UIColor.systemGray2))
                         Spacer()
-                        Text("นามสกุล")
+                        Text(regisVM.currentStudent.lastname)
                     }.font(.system(size: 17))
                     HStack {
-                        Text("คณะ")
+                        Text("คณะ").foregroundColor(Color(UIColor.systemGray2))
                         Spacer()
-                        Text("คณะ")
+                        Text(regisVM.currentStudent.faculty)
                     }.font(.system(size: 17))
                     HStack {
-                        Text("สาขา")
+                        Text("สาขา").foregroundColor(Color(UIColor.systemGray2))
                         Spacer()
-                        Text("สาขา")
+                        Text(regisVM.currentStudent.major)
+                    }.font(.system(size: 17))
+                    HStack {
+                        Text("รหัสสาขา").foregroundColor(Color(UIColor.systemGray2))
+                        Spacer()
+                        Text(regisVM.currentStudent.majorCode)
                     }.font(.system(size: 17))
                 }
                 
@@ -49,7 +54,8 @@ struct Register: View {
                         
                     }) {
                         Text("ต่อไป")
-                    }
+                    }.font(.system(size: 17))
+                    .disabled(!regisVM.canContinue)
                 }
             }
             .navigationTitle("สร้างบัญชี")

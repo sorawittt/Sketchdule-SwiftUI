@@ -33,7 +33,7 @@ struct BottomBar : View {
                     Text("ประวัติ")
             }
             
-            SettingView()
+            Register()
                 .tabItem{
                     Image(systemName: "ellipsis")
                     Text("ตั้งค่า")
