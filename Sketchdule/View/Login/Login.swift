@@ -35,21 +35,21 @@ struct Login: View {
                             }
                         }
                     }
-                    Section(footer:NavigationLink(destination: StudentDetail()) {
+                Section(header: Text(loginVM.loginError).foregroundColor(Color(UIColor.systemRed)),footer:NavigationLink(destination: StudentDetail()) {
                         Text("ไม่มีบัญชีผู้ใช้ ?")
                             .font(.system(size: 15))
                         Text("สร้างบัญชี")
                             .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
                             .font(.system(size: 15))
                     }.padding(.leading, width * 0.22)
-                    .padding(.top, height *  0.05)){
+                    .padding(.top, height *  0.05)) {
                         Button(action: {
                             loginVM.login()
                         }) {
                             Text("เข้าสู่ระบบ")
                                 .font(.system(size: 17))
                                 .foregroundColor(Color(UIColor.systemBlue))
-                        }
+                        }.disabled((loginVM.username == "" && loginVM.pw == ""))
                     }
                 }.navigationBarTitle("เข้าสู่ระบบ")
                 

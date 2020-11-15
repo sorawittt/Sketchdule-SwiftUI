@@ -6,7 +6,7 @@ struct SettingView: View {
     @State var notificationsEnabled: Bool = false
     @State private var showingAlert = false
     
-    let realm = try! Realm()
+    let userDB = UserDB.shared
     
     var body: some View {
         NavigationView {
@@ -49,16 +49,14 @@ struct SettingView: View {
                     }
                     .alert(isPresented:$showingAlert) {
                         Alert(title: Text("ยืนยัน"), message: Text("ลบข้อมูลตารางเรียน"), primaryButton: .default(Text("ยืนยัน")) {
-                            try! realm.write({
-                                realm.deleteAll()
-                            })
+                                DB().deleteAllSchedule()
                         }, secondaryButton: .cancel(Text("ยกเลิก")))
                     }
                 }
                 
                 Section {
                     Button(action: {
-                       
+                        userDB.logout()
                     }) {
                         Text("ออกจากระบบ").foregroundColor(Color(UIColor.systemRed))
                             .font(.system(size: 17))

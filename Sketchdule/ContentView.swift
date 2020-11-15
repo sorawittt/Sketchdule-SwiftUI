@@ -12,34 +12,40 @@ struct ContentView: View {
 
 struct BottomBar : View {
     @ObservedObject private var selectSubject = SelectSubjectViewModel.shared
+    @ObservedObject var userDB = UserDB.shared
     var body: some View {
-        TabView {
-            TodayScheduleView()
-                .tabItem{
-                    Image(systemName: "calendar")
-                    Text("ตารางเรียน")
+        
+        if userDB.isLogin {
+            TabView {
+                TodayScheduleView()
+                    .tabItem{
+                        Image(systemName: "calendar")
+                        Text("ตารางเรียน")
+                }
+                
+                CreateScheduleView(selectSubjectVM: selectSubject)
+                    .tabItem{
+                        Image(systemName: "calendar.badge.plus")
+                        Text("สร้างตารางเรียน")
+                }
+                
+                
+                HistoryView()
+                    .tabItem{
+                        Image(systemName: "clock")
+                        Text("ประวัติ")
+                }
+                
+                SettingView()
+                    .tabItem{
+                        Image(systemName: "ellipsis")
+                        Text("ตั้งค่า")
+                }
             }
-            
-            CreateScheduleView(selectSubjectVM: selectSubject)
-                .tabItem{
-                    Image(systemName: "calendar.badge.plus")
-                    Text("สร้างตารางเรียน")
-            }
-            
-            
-            HistoryView()
-                .tabItem{
-                    Image(systemName: "clock")
-                    Text("ประวัติ")
-            }
-            
+            .font(.system(size: 22))
+        } else  {
             Login()
-                .tabItem{
-                    Image(systemName: "ellipsis")
-                    Text("ตั้งค่า")
-            }
         }
-        .font(.system(size: 22))
     }
 
 }

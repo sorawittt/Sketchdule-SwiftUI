@@ -1,7 +1,7 @@
 import Foundation
 import RealmSwift
 
-class SubjectDB: Object {
+class SubjectModelDB: Object {
     @objc var code = ""
     @objc var name = ""
     @objc var location = ""

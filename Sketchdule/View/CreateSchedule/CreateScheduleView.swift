@@ -7,8 +7,6 @@ struct CreateScheduleView: View {
     @State private var buttonDisable = true
     @State private var action: Int? = 0
     
-    
-    
     var body: some View {
         NavigationView {
             VStack() {

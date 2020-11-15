@@ -1,10 +1,3 @@
-//
-//  SelectScheduleView.swift
-//  Sketchdule
-//
-//  Created by Sorawit Ruangthong on 14/11/2563 BE.
-//
-
 import SwiftUI
 
 struct SelectScheduleView: View {

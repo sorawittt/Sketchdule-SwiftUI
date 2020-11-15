@@ -13,10 +13,10 @@ struct DB {
     
     func addSubject(subject: ElliotableViewModel) {
         try! realm.write({
-            realm.delete(realm.objects(SubjectDB.self))
+            realm.delete(realm.objects(SubjectModelDB.self))
         })
         for s in subject.courseList {
-            let temp = SubjectDB()
+            let temp = SubjectModelDB()
             temp.code = s.courseId
             temp.name = s.courseName
             temp.location = s.professor
@@ -35,11 +35,11 @@ struct DB {
         inFormatter.dateFormat = "HH:mm"
         inFormatter.locale = Locale(identifier: "en_US_POSIX")
         
-        let result = realm.objects(SubjectDB.self).filter("day == \(days[day])").sorted(byKeyPath: "startTime", ascending: true)
+        let result = realm.objects(SubjectModelDB.self).filter("day == \(days[day])").sorted(byKeyPath: "startTime", ascending: true)
         var list = [Schedule]()
         
         for s in result {
-            let temp = SubjectDB(value: s)
+            let temp = SubjectModelDB(value: s)
             let startTime = temp.startTime.components(separatedBy: ":")
             let endTime = temp.endTime.components(separatedBy: ":")
 
@@ -65,10 +65,10 @@ struct DB {
         inFormatter.dateFormat = "HH:mm"
         inFormatter.locale = Locale(identifier: "en_US_POSIX")
         
-        let result = realm.objects(SubjectDB.self).filter("day == \(days[day])").sorted(byKeyPath: "startTime", ascending: true)
+        let result = realm.objects(SubjectModelDB.self).filter("day == \(days[day])").sorted(byKeyPath: "startTime", ascending: true)
     
         for s in result {
-            let temp = SubjectDB(value: s)
+            let temp = SubjectModelDB(value: s)
             let startTime = temp.startTime.components(separatedBy: ":")
             let endTime = temp.endTime.components(separatedBy: ":")
 
@@ -90,10 +90,10 @@ struct DB {
     }
     
     func subjectList(day: Int) -> [Schedule] {
-        let result = realm.objects(SubjectDB.self).filter("day == \(days[day])").sorted(byKeyPath: "startTime", ascending: true)
+        let result = realm.objects(SubjectModelDB.self).filter("day == \(days[day])").sorted(byKeyPath: "startTime", ascending: true)
         var list = [Schedule]()
         for s in result {
-            let temp = SubjectDB(value: s)
+            let temp = SubjectModelDB(value: s)
             let stringTime = temp.startTime + " - " + temp.endTime
             list.append(Schedule(time: stringTime, name: temp.name, location: temp.location, code: temp.code))
         }
@@ -102,6 +102,12 @@ struct DB {
     
     private func toTimeFormat(sHour: Int, sMinute: Int, eHour: Int, eMinute: Int) -> String {
         return String(format: "%02d:%02d - %02d:%02d", sHour, sMinute, eHour, eMinute)
+    }
+    
+    func deleteAllSchedule() {
+        try! realm.write({
+            realm.delete(realm.objects(SubjectModelDB.self))
+        })
     }
     
 }
