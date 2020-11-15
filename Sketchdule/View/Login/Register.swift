@@ -1,69 +1,114 @@
 import SwiftUI
+import ToastUI
 
 struct Register: View {
-    @State var showResult = false
-    @ObservedObject var regisVM = RegisterViewModel()
+    @State var id = ""
+    @State var username = ""
+    @State var pw = ""
+    @State var confirmPW = ""
+    @ObservedObject var regisVM = RegisterViewModel.shared
+    
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        NavigationView {
             Form {
                 Section(header: Text("รหัสนิสิต")) {
                     HStack {
-                        TextField("รหัสนิสิต", text: $regisVM.studentID).font(.system(size: 17)).keyboardType(.numberPad)
-                        
-                        if (regisVM.studentID.count == 10) {
-                            Button(action: {
-                                regisVM.getDetail()
-                            }) {
-                                Image(systemName: "magnifyingglass.circle.fill")
-                            }
+                        TextField(regisVM.studentID, text: $regisVM.studentID).font(.system(size: 17)).keyboardType(.numberPad)
                         }
-                    }
+                }.disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+                
+                Section(header: Text("Username"), footer: Text(regisVM.errorUsername).foregroundColor(.red)) {
+                    TextField("Username", text: $regisVM.username)
+                    .font(.system(size: 17))
                 }
                 
-                Section(header: Text("ผลการค้นหา")) {
-                    HStack {
-                        Text("ชื่อ").foregroundColor(Color(UIColor.systemGray2))
-                        Spacer()
-                        Text(regisVM.currentStudent.firstname)
-                    }.font(.system(size: 17))
-                    HStack {
-                        Text("นามสกุล").foregroundColor(Color(UIColor.systemGray2))
-                        Spacer()
-                        Text(regisVM.currentStudent.lastname)
-                    }.font(.system(size: 17))
-                    HStack {
-                        Text("คณะ").foregroundColor(Color(UIColor.systemGray2))
-                        Spacer()
-                        Text(regisVM.currentStudent.faculty)
-                    }.font(.system(size: 17))
-                    HStack {
-                        Text("สาขา").foregroundColor(Color(UIColor.systemGray2))
-                        Spacer()
-                        Text(regisVM.currentStudent.major)
-                    }.font(.system(size: 17))
-                    HStack {
-                        Text("รหัสสาขา").foregroundColor(Color(UIColor.systemGray2))
-                        Spacer()
-                        Text(regisVM.currentStudent.majorCode)
-                    }.font(.system(size: 17))
+                Section(header: Text("Password"), footer: Text(regisVM.errorPW).foregroundColor(.red)) {
+                    SecureField("Password", text: $regisVM.pw)
+                        .font(.system(size: 17))
+                    SecureField("Confirm Password", text: $regisVM.confirmPW)
+                        .font(.system(size: 17))
                 }
                 
                 Section {
                     Button(action: {
-                        
+                        regisVM.signup()
                     }) {
-                        Text("ต่อไป")
-                    }.font(.system(size: 17))
-                    .disabled(!regisVM.canContinue)
-                }
+                        Text("สร้างบัญชีผู้ใช้")
+                            .foregroundColor(Color(UIColor.systemBlue))
+                            .font(.system(size: 17))
+                    }
+                    .disabled(!(regisVM.errorPW == "" && regisVM.errorUsername == ""))
+                    
+                    .toast(isPresented: $regisVM.showAlert) {
+                            if regisVM.status != "" {
+                                if regisVM.status == "400" {
+                                    ToastView {
+                                        VStack {
+                                            Image(systemName: "info.circle.fill")
+                                                .renderingMode(.template)
+                                                .foregroundColor(Color(UIColor.systemYellow))
+                                                .font(.system(size: 60))
+                                            
+                                            Text("Username ซ้ำ")
+                                                .padding(10)
+                                                .multilineTextAlignment(.center)
+                                            
+                                            Button(action: {
+                                                regisVM.showAlert = false
+                                            }) {
+                                                Text("ตกลง")
+                                            }
+                                        }
+                                    }
+                                } else {
+                                    VStack {
+                                        Image(systemName: "xmark.octagon.fill")
+                                            .renderingMode(.template)
+                                            .foregroundColor(Color(UIColor.systemRed))
+                                            .font(.system(size: 60))
+                                        
+                                        Text("มีข้อผิดพลาด กรุณาลองอีกครั้งภายหลัง")
+                                            .padding(10)
+                                            .multilineTextAlignment(.center)
+                                        
+                                        Button(action: {
+                                            regisVM.showAlert = false
+                                        }) {
+                                            Text("ตกลง")
+                                        }
+                                    }
+                                }
+                            } else {
+                                ToastView {
+                                    VStack {
+                                        Image(systemName: "checkmark.circle.fill")
+                                            .renderingMode(.template)
+                                            .foregroundColor(Color(UIColor.systemGreen))
+                                            .font(.system(size: 60))
+                                        
+                                        Text("สร้างบัญชีผู้ใช้สำเร็จ")
+                                            .padding(10)
+                                            .multilineTextAlignment(.center)
+                                        
+                                        Button(action: {
+                                            regisVM.reset()
+                                            presentationMode.wrappedValue.dismiss()
+                                            regisVM.showAlert = false
+                                        }) {
+                                            Text("ตกลง")
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                          
             }
             .navigationTitle("สร้างบัญชี")
         }
     }
 }
-
-struct RegisterView_Previews: PreviewProvider {
+struct Register_Previews: PreviewProvider {
     static var previews: some View {
         Register()
     }

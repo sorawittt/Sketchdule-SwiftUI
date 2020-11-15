@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-//    @EnvironmentObject var selectSubject: SelectSubjectViewModel
+
     var body: some View {
         VStack {
             Spacer()
@@ -33,7 +33,7 @@ struct BottomBar : View {
                     Text("ประวัติ")
             }
             
-            Register()
+            Login()
                 .tabItem{
                     Image(systemName: "ellipsis")
                     Text("ตั้งค่า")
