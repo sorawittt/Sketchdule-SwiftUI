@@ -30,12 +30,6 @@ struct BottomBar : View {
                 }
                 
                 
-                HistoryView()
-                    .tabItem{
-                        Image(systemName: "clock")
-                        Text("ประวัติ")
-                }
-                
                 SettingView()
                     .tabItem{
                         Image(systemName: "ellipsis")
