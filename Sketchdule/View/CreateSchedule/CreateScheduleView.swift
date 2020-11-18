@@ -1,4 +1,5 @@
 import SwiftUI
+import ToastUI
 
 struct CreateScheduleView: View {
     @State var showingSheet = false
@@ -6,6 +7,7 @@ struct CreateScheduleView: View {
     @State private var isEditable = false
     @State private var buttonDisable = true
     @State private var action: Int? = 0
+    @State var loading = false
     
     var body: some View {
         NavigationView {
@@ -19,8 +21,13 @@ struct CreateScheduleView: View {
                 }
                 NavigationLink(destination: SelectScheduleView(), tag: 1, selection: $action) {EmptyView()}
                 Button(action: {
-                    emptrySelect()
-                    self.action = 1
+//                    emptrySelect()
+                    selectSubjectVM.test()
+                    loading = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        loading = false
+                        self.action = 1
+                    }
                 }) {
                     Text("สร้างตารางเรียน").font(.system(size: 15)).foregroundColor(.white)
                         .frame(minWidth: 330, maxWidth: 330, minHeight: 25, maxHeight: 25)
@@ -31,6 +38,14 @@ struct CreateScheduleView: View {
                 }
                 .buttonStyle(PlainButtonStyle())
                 .disabled(!(selectSubjectVM.selectSubject.count > 0))
+                .toast(isPresented: $loading) {
+                  ToastView("กำลังโหลด...") {
+                    // EmptyView()
+                  } background: {
+                    // EmptyView()
+                  }
+                  .toastViewStyle(IndefiniteProgressToastViewStyle())
+                }
             }.environment(\.editMode, isEditable ? .constant(.active) : .constant(.inactive))
             .navigationBarTitle("สร้างตารางเรียน")
             .navigationBarItems(leading:

@@ -9,6 +9,8 @@ struct DB {
     let date = Date()
     let calendar = Calendar.current
     
+    let userDB = UserDB.shared
+    
     let realm = try! Realm()
     
     func addSubject(subject: ElliotableViewModel) {
@@ -17,12 +19,24 @@ struct DB {
         })
         for s in subject.courseList {
             let temp = SubjectModelDB()
+            let startTime = s.startTime.components(separatedBy: ":")
+            let endTime = s.endTime.components(separatedBy: ":")
+            let startHour = Int(startTime[0]) ?? 0
+            let startMinute = Int(startTime[1]) ?? 0
+            let endHour = Int(endTime[0]) ?? 0
+            let endMinute = Int(endTime[1]) ?? 0
+            
+            let star = String(format: "%02d:%02d", startHour, startMinute)
+            let en = String(format: "%02d:%02d", endHour, endMinute)
+//            let start = String(format: "%02d:%02d", s.startTime)
+//            let end = String(format: "%02d:%02d", s.endTime)
             temp.code = s.courseId
             temp.name = s.courseName
             temp.location = s.professor
-            temp.startTime = s.startTime
-            temp.endTime = s.endTime
+            temp.startTime = star
+            temp.endTime = en
             temp.day = s.courseDay.rawValue
+            
             
             try! realm.write({
                 realm.add(temp)

@@ -32,7 +32,7 @@
 		7B1EC5A5255F187F001B6A4F /* ElliotableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5A4255F187F001B6A4F /* ElliotableViewModel.swift */; };
 		7B1EC5A8255F193C001B6A4F /* ElliotableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5A7255F193C001B6A4F /* ElliotableModel.swift */; };
 		7B1EC5AB255F1BC5001B6A4F /* SelectScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5AA255F1BC5001B6A4F /* SelectScheduleView.swift */; };
-		7B1EC5AF255F1C7D001B6A4F /* MockTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5AE255F1C7D001B6A4F /* MockTimetable.swift */; };
+		7B1EC5AF255F1C7D001B6A4F /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5AE255F1C7D001B6A4F /* Timetable.swift */; };
 		7B1EC5B3255F1C9E001B6A4F /* Mocktable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5B2255F1C9E001B6A4F /* Mocktable.swift */; };
 		7B1EC5B8255F20D1001B6A4F /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5B7255F20D1001B6A4F /* HistoryView.swift */; };
 		7B1EC5BC255F2106001B6A4F /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5BB255F2106001B6A4F /* TimetableView.swift */; };
@@ -46,6 +46,10 @@
 		7BFBC5F625615D550059BDB2 /* UserModelDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBC5F525615D550059BDB2 /* UserModelDB.swift */; };
 		7BFBC5F9256161510059BDB2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBC5F8256161510059BDB2 /* User.swift */; };
 		7BFBC5FD2561C9980059BDB2 /* UserDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBC5FC2561C9980059BDB2 /* UserDB.swift */; };
+		7BFBC6052562EA730059BDB2 /* ScheduleApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBC6042562EA730059BDB2 /* ScheduleApi.swift */; };
+		7BFBC6082562EB600059BDB2 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBC6072562EB600059BDB2 /* Time.swift */; };
+		7BFBC60B2562FC890059BDB2 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBC60A2562FC890059BDB2 /* Course.swift */; };
+		7BFBC60E256302D80059BDB2 /* ElliotableSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBC60D256302D80059BDB2 /* ElliotableSchedule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,7 +80,7 @@
 		7B1EC5A4255F187F001B6A4F /* ElliotableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElliotableViewModel.swift; sourceTree = "<group>"; };
 		7B1EC5A7255F193C001B6A4F /* ElliotableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElliotableModel.swift; sourceTree = "<group>"; };
 		7B1EC5AA255F1BC5001B6A4F /* SelectScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectScheduleView.swift; sourceTree = "<group>"; };
-		7B1EC5AE255F1C7D001B6A4F /* MockTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTimetable.swift; sourceTree = "<group>"; };
+		7B1EC5AE255F1C7D001B6A4F /* Timetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
 		7B1EC5B2255F1C9E001B6A4F /* Mocktable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocktable.swift; sourceTree = "<group>"; };
 		7B1EC5B7255F20D1001B6A4F /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		7B1EC5BB255F2106001B6A4F /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
@@ -90,6 +94,10 @@
 		7BFBC5F525615D550059BDB2 /* UserModelDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelDB.swift; sourceTree = "<group>"; };
 		7BFBC5F8256161510059BDB2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7BFBC5FC2561C9980059BDB2 /* UserDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDB.swift; sourceTree = "<group>"; };
+		7BFBC6042562EA730059BDB2 /* ScheduleApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleApi.swift; sourceTree = "<group>"; };
+		7BFBC6072562EB600059BDB2 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		7BFBC60A2562FC890059BDB2 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		7BFBC60D256302D80059BDB2 /* ElliotableSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElliotableSchedule.swift; sourceTree = "<group>"; };
 		9710339DF2F6D5E95B550843 /* Pods-Sketchdule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sketchdule.debug.xcconfig"; path = "Target Support Files/Pods-Sketchdule/Pods-Sketchdule.debug.xcconfig"; sourceTree = "<group>"; };
 		BA26F142D476E2A9BFB3ED90 /* Pods-Sketchdule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sketchdule.release.xcconfig"; path = "Target Support Files/Pods-Sketchdule/Pods-Sketchdule.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,6 +173,10 @@
 				7B1EC5A7255F193C001B6A4F /* ElliotableModel.swift */,
 				7BFBC5EB255FE1E50059BDB2 /* Student.swift */,
 				7BFBC5F8256161510059BDB2 /* User.swift */,
+				7BFBC6042562EA730059BDB2 /* ScheduleApi.swift */,
+				7BFBC6072562EB600059BDB2 /* Time.swift */,
+				7BFBC60A2562FC890059BDB2 /* Course.swift */,
+				7BFBC60D256302D80059BDB2 /* ElliotableSchedule.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -239,7 +251,7 @@
 				7B1EC596255F0E2B001B6A4F /* AddSubjectView.swift */,
 				7B1EC5A4255F187F001B6A4F /* ElliotableViewModel.swift */,
 				7B1EC5AA255F1BC5001B6A4F /* SelectScheduleView.swift */,
-				7B1EC5AE255F1C7D001B6A4F /* MockTimetable.swift */,
+				7B1EC5AE255F1C7D001B6A4F /* Timetable.swift */,
 			);
 			path = CreateSchedule;
 			sourceTree = "<group>";
@@ -420,6 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BFBC60B2562FC890059BDB2 /* Course.swift in Sources */,
 				7B1EC569255EE7DC001B6A4F /* Schedule.swift in Sources */,
 				7BFBC5EC255FE1E50059BDB2 /* Student.swift in Sources */,
 				7BFBC5F3256128540059BDB2 /* LoginViewModel.swift in Sources */,
@@ -440,6 +453,7 @@
 				7B1EC58D255F0BE9001B6A4F /* CreateScheduleView.swift in Sources */,
 				7B1EC5A8255F193C001B6A4F /* ElliotableModel.swift in Sources */,
 				7B1EC5AB255F1BC5001B6A4F /* SelectScheduleView.swift in Sources */,
+				7BFBC6082562EB600059BDB2 /* Time.swift in Sources */,
 				7B1EC589255F0AF5001B6A4F /* SelectSubjectViewModel.swift in Sources */,
 				7BFBC5F625615D550059BDB2 /* UserModelDB.swift in Sources */,
 				7B1EC574255EFA69001B6A4F /* TodayScheduleView.swift in Sources */,
@@ -447,13 +461,15 @@
 				7BFBC5FD2561C9980059BDB2 /* UserDB.swift in Sources */,
 				7B1EC59E255F0EAC001B6A4F /* SearchSubjectRow.swift in Sources */,
 				7B1EC55C255EE648001B6A4F /* Subject.swift in Sources */,
+				7BFBC6052562EA730059BDB2 /* ScheduleApi.swift in Sources */,
 				7B1EC593255F0D31001B6A4F /* AddSubjectViewModel.swift in Sources */,
 				7B1EC565255EE6F1001B6A4F /* DB.swift in Sources */,
-				7B1EC5AF255F1C7D001B6A4F /* MockTimetable.swift in Sources */,
+				7B1EC5AF255F1C7D001B6A4F /* Timetable.swift in Sources */,
 				7B1EC5C1255F21CD001B6A4F /* SettingView.swift in Sources */,
 				7B1EC585255EFBA5001B6A4F /* AllScheduleViewModel.swift in Sources */,
 				7B1EC578255EFA8F001B6A4F /* AllScheduleView.swift in Sources */,
 				7B1EC57B255EFACF001B6A4F /* EmptyRow.swift in Sources */,
+				7BFBC60E256302D80059BDB2 /* ElliotableSchedule.swift in Sources */,
 				7B1EC540255EE542001B6A4F /* SketchduleApp.swift in Sources */,
 				7B1EC57E255EFB0A001B6A4F /* SubjectCard.swift in Sources */,
 			);

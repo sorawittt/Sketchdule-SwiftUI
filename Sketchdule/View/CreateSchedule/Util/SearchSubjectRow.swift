@@ -7,7 +7,7 @@ struct SearchSubjectRow: View {
     
     var body: some View {
         HStack {
-            Text("\(subjectCell.code) | \(subjectCell.name)").frame(minWidth: 0, maxWidth: width * 0.83, alignment: .leading).fixedSize(horizontal: true, vertical: true)
+            Text("\(subjectCell.code) | \(subjectCell.name)").frame(minWidth: 0, maxWidth: width * 0.81, alignment: .leading).fixedSize(horizontal: true, vertical: true)
             Spacer()
             if selectSubjectVM.isContain(c: subjectCell.code) {
                 Image(systemName: "minus.circle.fill").renderingMode(.original).onTapGesture {

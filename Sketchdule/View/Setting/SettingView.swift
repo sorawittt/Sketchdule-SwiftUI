@@ -15,44 +15,49 @@ struct SettingView: View {
                     HStack {
                         Text("ชื่อ").font(.system(size: 17))
                         Spacer()
-                        Text("สรวิชญ์ เรืองทอง").font(.system(size: 17))
+                        Text("\(userDB.firstname)" + " " + "\(userDB.lastname)").font(.system(size: 17))
                     }
                     HStack {
                         Text("รหัสนิสิต").font(.system(size: 17))
                         Spacer()
-                        Text("6010405513").font(.system(size: 17))
+                        Text("\(userDB.studentId)").font(.system(size: 17))
                     }
                     HStack {
                         Text("คณะ").font(.system(size: 17))
                         Spacer()
-                        Text("วิทยาศาสตร์").font(.system(size: 17))
+                        Text(userDB.faculty).font(.system(size: 17))
                     }
                     HStack {
                         Text("ภาควิชา").font(.system(size: 17))
                         Spacer()
-                        Text("วิทยาการคอมพิวเตอร์").font(.system(size: 17))
+                        Text(userDB.major).font(.system(size: 17))
+                    }
+                    HStack {
+                        Text("รหัสสาขา").font(.system(size: 17))
+                        Spacer()
+                        Text(userDB.majorCode).font(.system(size: 17))
                     }
                 }
                 
-                Section(header: Text("การแจ้งเตือน")) {
-                    Toggle(isOn: $notificationsEnabled) {
-                            Text("แจ้งเตือนก่อนถึงเวลาเรียน").font(.system(size: 17))
-                    }
-                }
+//                Section(header: Text("การแจ้งเตือน")) {
+//                    Toggle(isOn: $notificationsEnabled) {
+//                            Text("แจ้งเตือนก่อนถึงเวลาเรียน").font(.system(size: 17))
+//                    }
+//                }
                 
-                Section {
-                    Button(action: {
-                       
-                    }) {
-                        Text("ลบข้อมูลตารางเรียน").foregroundColor(Color(UIColor.systemRed))
-                            .font(.system(size: 17))
-                    }
-                    .alert(isPresented:$showingAlert) {
-                        Alert(title: Text("ยืนยัน"), message: Text("ลบข้อมูลตารางเรียน"), primaryButton: .default(Text("ยืนยัน")) {
-                                DB().deleteAllSchedule()
-                        }, secondaryButton: .cancel(Text("ยกเลิก")))
-                    }
-                }
+//                Section {
+//                    Button(action: {
+//                       
+//                    }) {
+//                        Text("ลบข้อมูลตารางเรียน").foregroundColor(Color(UIColor.systemRed))
+//                            .font(.system(size: 17))
+//                    }
+//                    .alert(isPresented:$showingAlert) {
+//                        Alert(title: Text("ยืนยัน"), message: Text("ลบข้อมูลตารางเรียน"), primaryButton: .default(Text("ยืนยัน")) {
+//                                DB().deleteAllSchedule()
+//                        }, secondaryButton: .cancel(Text("ยกเลิก")))
+//                    }
+//                }
                 
                 Section {
                     Button(action: {

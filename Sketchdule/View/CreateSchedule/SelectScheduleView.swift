@@ -4,6 +4,7 @@ struct SelectScheduleView: View {
     @State private var showingAlert = false
     @ObservedObject var selectSubjectVM = SelectSubjectViewModel.shared
     let db = DB()
+    @State var updater = false
     
     let timetable = ["แบบที่ 1", "แบบที่ 2"]
     @State private var selectedIndex = 0
@@ -19,44 +20,36 @@ struct SelectScheduleView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var showingDetail = false
     
+    @State var tempIndex = 0
+    
+    
     
     var body: some View {
         
         VStack {
-            NavigationLink(destination: MockTimetable(), tag: 1, selection: $action) {EmptyView()}
-            NavigationLink(destination: MockTimetable(), tag: 2, selection: $action) {EmptyView()}
+//            NavigationLink(destination: MockTimetable(), tag: 1, selection: $action) {EmptyView()}
+//            NavigationLink(destination: MockTimetable(), tag: 2, selection: $action) {EmptyView()}
             
             Form {
                 Section {
                     
-                    Picker(selection: $selectedYearIndex, label: Text("ชั้นปีที่").font(.system(size: 16))) {
-                        ForEach(0 ..< years.count) { i in
-                            Text(years[i])
-                        }.font(.system(size: 16))
-                    }
-                        
-                    Picker(selection: $selectedSemesterIndex, label: Text("ภาคเรียน").font(.system(size: 16))) {
-                        ForEach(0 ..< semester.count) { i in
-                            Text(semester[i])
-                        }
-                    }.font(.system(size: 16))
-                    
                     Picker(selection: $selectedIndex, label: Text("เลือกรูปแบบตารางเรียน").font(.system(size: 16))) {
-                        ForEach(0 ..< timetable.count) { i in
+                        ForEach(0..<selectSubjectVM.allCreateSchedule.count) { i in
                                 HStack {
-                                    
-                                    Text(timetable[i])
+                                    Text("แบบที่ \(i + 1)")
                                     Button(action: {
+                                        tempIndex = i
                                         showingDetail.toggle()
                                     }) {
                                         Image(systemName: "info.circle")
                                             .renderingMode(.template)
                                             .foregroundColor(Color(UIColor.systemBlue))
                                     }.sheet(isPresented: $showingDetail) {
-                                        MockTimetable()
+                                        Timetable(data: selectSubjectVM.allCreateSchedule[tempIndex])
                                     }
                                 }
                             }
+                        
                         }.font(.system(size: 16))
                     }
                 }
@@ -71,15 +64,16 @@ struct SelectScheduleView: View {
                     
             }
             .buttonStyle(PlainButtonStyle())
-            .disabled(!(checkButton()))
+            
             .alert(isPresented:$showingAlert) {
                 Alert(title: Text("กรุณาตรวจสอบความถูกต้อง"), message: Text("หากกดปุ่มยืนยันจะเป็นการแทนที่ตารางเรียนปัจจุบันด้วยตารางเรียนใหม่ คุณแน่ใจที่จะทำต่อ?"), primaryButton: .default(Text("ยืนยัน")) {
-                    db.addSubject(subject: Mocktable().elliotableVM)
+                    db.addSubject(subject: selectSubjectVM.allCreateSchedule[selectedIndex].subject)
                         presentationMode.wrappedValue.dismiss()
                 }, secondaryButton: .cancel(Text("ยกเลิก")))
             }
         }
            .navigationBarTitle("เลือกตารางเรียน")
+        
     }
     
     private func checkButton() -> Bool {
@@ -87,6 +81,14 @@ struct SelectScheduleView: View {
             return true
         }
         return false
+    }
+    
+    private func setTempIndex(i: Int) {
+        tempIndex = i
+    }
+    
+    private func refresh() {
+        updater.toggle()
     }
 }
 

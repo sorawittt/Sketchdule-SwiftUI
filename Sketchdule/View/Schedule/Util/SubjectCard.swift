@@ -11,13 +11,14 @@ struct SubjectCard: View {
                 Text(subject.name)
             }
                 .frame(width: width * 0.45, height: 50).fixedSize(horizontal: false, vertical: true)
-                .font(.system(size: 18, weight: .bold))
+            .padding(.leading, 3)
+                .font(.system(size: 16, weight: .bold))
             VStack( spacing: 10) {
                 Text(subject.location)
                 Text(subject.code)
             }
                 .frame(width: width * 0.40, height: 50, alignment: .center).fixedSize(horizontal: false, vertical: true)
-                .font(.system(size: 18, weight: .medium))
+                .font(.system(size: 16, weight: .medium))
         }
         .frame(width: width * 0.9,alignment: .leading)
         .padding(10)

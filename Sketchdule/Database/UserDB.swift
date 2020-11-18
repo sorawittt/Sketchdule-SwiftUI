@@ -6,6 +6,13 @@ class UserDB: ObservableObject {
     
     @Published var isLogin = false
     
+    @Published var firstname = ""
+    @Published var lastname = ""
+    @Published var studentId = ""
+    @Published var faculty = ""
+    @Published var major = ""
+    @Published var majorCode = ""
+    
     init() {
         isLogin = checkLogin()
     }
@@ -16,6 +23,12 @@ class UserDB: ObservableObject {
         try! realm.write({
             realm.add(user)
         })
+        firstname = user.firstname
+        lastname = user.lastname
+        studentId = user.studentId
+        faculty = user.faculty
+        major = user.major
+        majorCode = user.majorCode
         isLogin = true
     }
     
@@ -29,19 +42,31 @@ class UserDB: ObservableObject {
             print("token expire: \(expDate)")
             let now = NSDate()
             if  ( now.timeIntervalSince(expDate as Date) > 0 ) {
+                try! realm.write({
+                    realm.delete(realm.objects(UserModelDB.self))
+                })
                 return false
             }
+            firstname = user.firstname
+            lastname = user.lastname
+            studentId = user.studentId
+            faculty = user.faculty
+            major = user.major
+            majorCode = user.majorCode
             return true
         }
         return false
-        
     }
 
     func logout() {
         try! realm.write({
-            realm.delete(realm.objects(UserModelDB.self))
+            realm.deleteAll()
         })
         isLogin = false
+    }
+    
+    func getUser() -> User {
+        return User(studentId: self.studentId, firstname: self.firstname, lastname: self.lastname, faculty: self.faculty, major: self.major, majorCode: self.majorCode)
     }
     
 }

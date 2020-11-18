@@ -14,4 +14,6 @@ struct ElliotableModel {
     var startTime: String
     var endTime: String
     var sec: String
-    var room: String}
+    var room: String
+    
+}

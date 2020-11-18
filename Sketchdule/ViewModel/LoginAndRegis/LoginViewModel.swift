@@ -74,6 +74,8 @@ class LoginViewModel: ObservableObject {
                     userDB.writeUser(user: temp)
                     canLogin = true
                     loginError = ""
+                    username = ""
+                    pw = ""
                 }
             } else {
                 DispatchQueue.main.async {

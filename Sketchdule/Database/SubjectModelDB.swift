@@ -8,4 +8,5 @@ class SubjectModelDB: Object {
     @objc var startTime = ""
     @objc var endTime = ""
     @objc var day = 0
+    @objc var createBy = ""
 }
