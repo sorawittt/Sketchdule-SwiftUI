@@ -5,7 +5,7 @@ struct CompareScheduleView: View {
     @State var showResult = false
     @State var isUserContain = false
     
-    @ObservedObject var compareVM = CompareScheduleViewModel()
+    @ObservedObject var compareVM = CompareScheduleViewModel.shared
     
     @State var currentUser = UserDetail(firstname: "", lastname: "-", studentId: "-", id: "-")
     
@@ -56,14 +56,10 @@ struct CompareScheduleView: View {
                             }
                         }
                         Section {
-//                                NavigationLink(destination: ) {
-                            Button(action: {
-                                compareVM.getSelectUserSchedule()
-                            }){
+                            NavigationLink(destination: ShowCompareScheduleView(data: compareVM.getSelectUserSchedule())) {
                                     Text("เปรียบเทียบ").foregroundColor(Color(UIColor.systemBlue))
                                         .font(.system(size: 17))
-//                                }
-                            }
+                                }
                         }
                     }
                 }

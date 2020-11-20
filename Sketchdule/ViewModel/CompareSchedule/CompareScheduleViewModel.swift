@@ -1,4 +1,5 @@
 import Foundation
+import ElliotableSwiftUI
 
 struct UserDetail: Decodable, Identifiable {
     var firstname: String
@@ -7,11 +8,32 @@ struct UserDetail: Decodable, Identifiable {
     var id: String
 }
 
+struct DataApi: Decodable {
+    var data: [Courses]
+}
+
+struct Courses: Decodable {
+    var courses: [ScheduleApi]
+}
+
 class CompareScheduleViewModel: ObservableObject {
+    static let shared = CompareScheduleViewModel()
     var userDB = UserDB.shared
     @Published var userList = [UserDetail]()
     
+    //27
+    var time = ["8:00", "8:30", "9:00", "9:30", "10:00", "10:30" , "11:00", "11:30" , "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00"]
+    var mon = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    var tue = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    var wed = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    var thu = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    var fri = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    var sat = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    var sun = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    var days = [[Int]]()
+    
     init() {
+        days = [mon, tue, wed, thu, fri, sat, sun]
         let temp = UserDetail(firstname: userDB.firstname, lastname: userDB.lastname, studentId: userDB.studentId, id: userDB.userId)
         userList.append(temp)
     }
@@ -28,7 +50,6 @@ class CompareScheduleViewModel: ObservableObject {
             }
             let user = try? JSONDecoder().decode(UserDetail.self, from: data)
             if let httpResponse = response as? HTTPURLResponse {
-                print("statusCode: \(httpResponse.statusCode)")
                 if httpResponse.statusCode == 200 {
                     temp.firstname = user!.firstname
                     temp.lastname = user!.lastname
@@ -39,7 +60,6 @@ class CompareScheduleViewModel: ObservableObject {
         }
         task.resume()
         sem.wait()
-        print(temp)
         return temp
     }
     
@@ -70,8 +90,10 @@ class CompareScheduleViewModel: ObservableObject {
     }
     
     
-    func getSelectUserSchedule() {
+    func getSelectUserSchedule() -> [ElliottEvent] {
+        let sem = DispatchSemaphore.init(value: 0)
         var userIdList = [String]()
+        var max = userList.count
         for u in userList {
             userIdList.append(u.id)
         }
@@ -88,14 +110,85 @@ class CompareScheduleViewModel: ObservableObject {
         request.httpBody = jsonData
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let _ = data, error == nil else {
+            defer { sem.signal() }
+            guard let data = data, error == nil else {
                 print(error?.localizedDescription ?? "No data")
                 return
             }
             
-            let stringValue = String(decoding: data!, as: UTF8.self)
-            print(stringValue)
+            let all = try! JSONDecoder().decode(DataApi.self, from: data)
+            
+            for sche in all.data {
+                for subj in sche.courses {
+                    let start = ("\(subj.start.hour):\(subj.start.minute)")
+                    let end = ("\(subj.end.hour):\(subj.end.minute)")
+                    for day in subj.days {
+                        var inrange = false
+                        var d = 0
+                        if day == "SUN" { d = 6 }
+                        else if day == "MON" { d = 0 }
+                        else if day == "TUE" { d = 1 }
+                        else if day == "WED" { d = 2 }
+                        else if day == "THU" { d = 3 }
+                        else if day == "FRI" { d = 4 }
+                        else if day == "SAT" { d = 5 }
+                        
+                        for i in 0...self.time.count-1 {
+                            if (start == self.time[i] || end == self.time[i] || inrange){
+                                if self.days[d][i] < max {
+                                    self.days[d][i] += 1
+                                }
+                                if start == self.time[i] {
+                                    inrange = true
+                                } else if end == self.time[i] {
+                                    inrange = false
+                                } else {
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
         task.resume()
+        sem.wait()
+        
+        return toEllioSchedule()
+    }
+    
+    func toEllioSchedule() -> [ElliottEvent]{
+        var compare = [ElliottEvent]()
+        for d in 0...days.count - 1 {
+            var lastTime = ""
+            var lastCount = -1
+            for i in 0...time.count - 1 {
+                if (days[d][i] != 0 && lastTime == "") {
+                    lastTime = time[i]
+                    lastCount = days[d][i]
+                } else if (lastCount != days[d][i] && lastCount > 0) {
+                    var color:UIColor = UIColor.systemYellow
+                    if lastCount == 1 {
+                        color = UIColor.systemYellow
+                    } else if lastCount == 2 {
+                        color = .orange
+                    } else if lastCount == 3 {
+                        color = UIColor.systemOrange
+                    } else if lastCount == 4 {
+                        color = UIColor.systemRed
+                    } else {
+                        color = .red
+                    }
+                    compare.append(ElliottEvent(courseId: String(lastCount), courseName: String("ไม่ว่าง \(lastCount)"), roomName: "", professor: "", courseDay: ElliotDay(rawValue: d+1)!, startTime: lastTime, endTime: time[i], backgroundColor: color))
+                    if (days[d][i] != 0) {
+                        lastTime = time[i]
+                        lastCount = days[d][i]
+                    } else {
+                        lastTime = ""
+                        lastCount = -1
+                    }
+                }
+            }
+        }
+        return compare
     }
 }
