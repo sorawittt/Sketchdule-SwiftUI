@@ -1,7 +1,6 @@
 import Foundation
 
 struct AllScheduleViewModel {
-    
     private var scheduleMonday: [Schedule]
     private var scheduleTuesday: [Schedule]
     private var scheduleWednesday: [Schedule]
@@ -29,4 +28,3 @@ struct AllScheduleViewModel {
         return date[day]
     }
 }
-

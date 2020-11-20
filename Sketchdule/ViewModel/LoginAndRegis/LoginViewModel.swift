@@ -39,10 +39,10 @@ class LoginViewModel: ObservableObject {
                 return
             }
             let user = try? JSONDecoder().decode(UserApi.self, from: data)
-//            print(String(data: data, encoding: String.Encoding.utf8))
             
             let test: String = user?.token ?? ""
 
+            print(test)
             if test != "" {
                 DispatchQueue.main.async {
                     let temp = UserModelDB()
@@ -53,6 +53,7 @@ class LoginViewModel: ObservableObject {
                     temp.major = user!.user.major
                     temp.majorCode = user!.user.majorCode
                     temp.token = user!.token
+                    temp.userId = user!.user.userId
 
                     //cal expire
                     let jwt = user!.token

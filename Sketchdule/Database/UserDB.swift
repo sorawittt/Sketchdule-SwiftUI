@@ -5,13 +5,14 @@ class UserDB: ObservableObject {
     static let shared = UserDB()
     
     @Published var isLogin = false
-    
     @Published var firstname = ""
     @Published var lastname = ""
     @Published var studentId = ""
     @Published var faculty = ""
     @Published var major = ""
     @Published var majorCode = ""
+    @Published var userId = ""
+    @Published var token = ""
     
     init() {
         isLogin = checkLogin()
@@ -29,6 +30,7 @@ class UserDB: ObservableObject {
         faculty = user.faculty
         major = user.major
         majorCode = user.majorCode
+        userId = user.userId
         isLogin = true
     }
     
@@ -53,6 +55,8 @@ class UserDB: ObservableObject {
             faculty = user.faculty
             major = user.major
             majorCode = user.majorCode
+            userId = user.userId
+            token = user.token
             return true
         }
         return false
@@ -66,7 +70,6 @@ class UserDB: ObservableObject {
     }
     
     func getUser() -> User {
-        return User(studentId: self.studentId, firstname: self.firstname, lastname: self.lastname, faculty: self.faculty, major: self.major, majorCode: self.majorCode)
+        return User(studentId: self.studentId, firstname: self.firstname, lastname: self.lastname, faculty: self.faculty, major: self.major, majorCode: self.majorCode, userId: self.userId)
     }
-    
 }

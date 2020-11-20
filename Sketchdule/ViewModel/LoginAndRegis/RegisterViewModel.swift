@@ -107,9 +107,6 @@ class RegisterViewModel: ObservableObject {
         
         request.httpBody = jsonData
         
-//        let str = String(decoding: request.httpBody!, as: UTF8.self)
-//        print(str)
-        
         let task = URLSession.shared.dataTask(with: request) { [self] data, response, error in
             guard let _ = data, error == nil else {
                 print(error?.localizedDescription ?? "No data")
@@ -118,7 +115,6 @@ class RegisterViewModel: ObservableObject {
             
             DispatchQueue.main.async {
                 if let httpResponse = response as? HTTPURLResponse{
-//                    print(httpResponse.statusCode)
                     if httpResponse.statusCode == 200 {
                         status = ""
                         showAlert = true
@@ -223,5 +219,4 @@ class RegisterViewModel: ObservableObject {
         showAlert = false
         status = ""
     }
-    
 }

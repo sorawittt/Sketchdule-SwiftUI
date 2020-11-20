@@ -10,4 +10,5 @@ class UserModelDB: Object {
     @objc var major = ""
     @objc var majorCode = ""
     @objc var expire = ""
+    @objc var userId = ""
 }

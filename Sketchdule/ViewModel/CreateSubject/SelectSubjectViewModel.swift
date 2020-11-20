@@ -12,7 +12,7 @@ class SelectSubjectViewModel: ObservableObject {
     
     @Published var userDB = UserDB.shared
     
-    var click = 0
+    var tempSchedule = [[ScheduleApi]]()
     
     @Published var isLoading = false
     @Published var loadComplete = false
@@ -53,6 +53,61 @@ class SelectSubjectViewModel: ObservableObject {
         selectSubject = [Subject]()
     }
     
+    func setSelectSchedule(index: Int) {
+        var allSubject = [Any]()
+        for i in tempSchedule[index] {
+            let s: [String: Any] = ["name": i.name, "code": i.code,
+                     "section": i.section,
+            "start": [
+                "hour": i.start.hour,
+                "minute": i.start.minute
+            ],
+            "end": [
+                "hour": i.end.hour,
+                "minute": i.end.minute
+            ],
+            "room": i.room,
+            "days": i.days,
+            "property": i.property]
+            allSubject.append(s)
+        }
+        
+        let json: [String: Any] = ["userId": userDB.userId, "courses":
+                                    allSubject]
+        let jsonData = try! JSONSerialization.data(withJSONObject: json)
+        
+        let convertedString = String(data: jsonData, encoding: String.Encoding.utf8) // the data will be converted to the string
+        print(convertedString)
+        
+        guard let url = URL(string: "http://cnc.cs.sci.ku.ac.th:9900/schedule") else { return }
+        var request = URLRequest(url: url)
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpMethod = "POST"
+        
+        request.httpBody = jsonData
+        
+        let task = URLSession.shared.dataTask(with: request) { [self] data, response, error in
+            guard let _ = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                if let httpResponse = response as? HTTPURLResponse{
+                    print(httpResponse.statusCode)
+                    if httpResponse.statusCode == 200 {
+                        print("Complete")
+                    } else {
+                       print("Error")
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+    
     func test() {
         allCreateSchedule = [ElliotableSchedule]()
         var select = [String]()
@@ -84,7 +139,7 @@ class SelectSubjectViewModel: ObservableObject {
                 return
             }
             let all = try! JSONDecoder().decode(allSchedule.self, from: data)
-            
+            tempSchedule = all.data
                 var count = 1
                 for sche in all.data {
                     var temp = ElliotableSchedule(name: ("แบบที่ " + "\(count)"))
@@ -95,42 +150,20 @@ class SelectSubjectViewModel: ObservableObject {
                         for day in subj.days {
                             var d = 1
                             if day == "SUN" { d = 7 }
-                            else if day == "MON" { d = 1 }
+                            else if day == "MON" { d = 1}
                             else if day == "TUE" { d = 2}
-                            else if day == "WED" { d = 3 }
+                            else if day == "WED" { d = 3}
                             else if day == "THU" { d = 4}
                             else if day == "FRI" { d = 5}
                             else if day == "SAT" { d = 6}
                             temp.subject.addCourse(elliotable: ElliotableModel(id: subj.code, name: subj.name, day: d, startTime: start, endTime: end, sec: section, room: subj.room))
                         }
                     }
-                    print(count)
-                    print("-----------")
                     print(temp.subject.uniqueList)
-                    print("+++++++++++")
                     allCreateSchedule.append(temp)
                     count = count + 1
                 }
-                
-            
         }
         task.resume()
     }
-    
-    func testDelay() {
-        let semaphore: DispatchSemaphore = DispatchSemaphore(value: 0)
-        isLoading = true
-        guard let url = URL(string: "192.168.1.37:3000/subject/testLoad") else { return }
-        let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, _) in
-            print("2")
-            semaphore.signal()
-        })
-        task.resume()
-        print("1")
-        semaphore.wait()
-        print("c")
-    }
-    
 }
-
-

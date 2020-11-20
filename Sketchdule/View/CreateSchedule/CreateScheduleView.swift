@@ -21,7 +21,6 @@ struct CreateScheduleView: View {
                 }
                 NavigationLink(destination: SelectScheduleView(), tag: 1, selection: $action) {EmptyView()}
                 Button(action: {
-//                    emptrySelect()
                     selectSubjectVM.test()
                     loading = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {

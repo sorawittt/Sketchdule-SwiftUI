@@ -8,4 +8,3 @@ struct Schedule: Identifiable {
     var code: String
 
 }
-

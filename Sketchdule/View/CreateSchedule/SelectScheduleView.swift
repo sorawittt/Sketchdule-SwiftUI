@@ -27,8 +27,6 @@ struct SelectScheduleView: View {
     var body: some View {
         
         VStack {
-//            NavigationLink(destination: MockTimetable(), tag: 1, selection: $action) {EmptyView()}
-//            NavigationLink(destination: MockTimetable(), tag: 2, selection: $action) {EmptyView()}
             
             Form {
                 Section {
@@ -67,6 +65,7 @@ struct SelectScheduleView: View {
             
             .alert(isPresented:$showingAlert) {
                 Alert(title: Text("กรุณาตรวจสอบความถูกต้อง"), message: Text("หากกดปุ่มยืนยันจะเป็นการแทนที่ตารางเรียนปัจจุบันด้วยตารางเรียนใหม่ คุณแน่ใจที่จะทำต่อ?"), primaryButton: .default(Text("ยืนยัน")) {
+                    selectSubjectVM.setSelectSchedule(index: selectedIndex)
                     db.addSubject(subject: selectSubjectVM.allCreateSchedule[selectedIndex].subject)
                         presentationMode.wrappedValue.dismiss()
                 }, secondaryButton: .cancel(Text("ยกเลิก")))

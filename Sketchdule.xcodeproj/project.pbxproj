@@ -39,6 +39,9 @@
 		7B1EC5C1255F21CD001B6A4F /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5C0255F21CD001B6A4F /* SettingView.swift */; };
 		7B1EC5C6255F2222001B6A4F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5C5255F2222001B6A4F /* Login.swift */; };
 		7B1EC5CA255F2240001B6A4F /* StudentDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1EC5C9255F2240001B6A4F /* StudentDetail.swift */; };
+		7B384F102567C55700754F0F /* CompareScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B384F0F2567C55600754F0F /* CompareScheduleView.swift */; };
+		7B384F152567C5D500754F0F /* CompareScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B384F142567C5D500754F0F /* CompareScheduleViewModel.swift */; };
+		7B384F19256801F800754F0F /* CompareScheduleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B384F18256801F800754F0F /* CompareScheduleDetailView.swift */; };
 		7BFBC5E8255FDB7A0059BDB2 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBC5E7255FDB7A0059BDB2 /* RegisterViewModel.swift */; };
 		7BFBC5EC255FE1E50059BDB2 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBC5EB255FE1E50059BDB2 /* Student.swift */; };
 		7BFBC5F025600A9F0059BDB2 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBC5EF25600A9F0059BDB2 /* Register.swift */; };
@@ -87,6 +90,9 @@
 		7B1EC5C0255F21CD001B6A4F /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		7B1EC5C5255F2222001B6A4F /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		7B1EC5C9255F2240001B6A4F /* StudentDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetail.swift; sourceTree = "<group>"; };
+		7B384F0F2567C55600754F0F /* CompareScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareScheduleView.swift; sourceTree = "<group>"; };
+		7B384F142567C5D500754F0F /* CompareScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareScheduleViewModel.swift; sourceTree = "<group>"; };
+		7B384F18256801F800754F0F /* CompareScheduleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareScheduleDetailView.swift; sourceTree = "<group>"; };
 		7BFBC5E7255FDB7A0059BDB2 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		7BFBC5EB255FE1E50059BDB2 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		7BFBC5EF25600A9F0059BDB2 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
@@ -195,6 +201,7 @@
 		7B1EC567255EE71E001B6A4F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				7B384F132567C5B400754F0F /* CompareSchedule */,
 				7BFBC5E6255FDB270059BDB2 /* LoginAndRegis */,
 				7B1EC587255F0AE2001B6A4F /* CreateSubject */,
 				7B1EC56C255EEB94001B6A4F /* Schedule */,
@@ -214,6 +221,7 @@
 		7B1EC571255EFA34001B6A4F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7B384F0E2567C3DE00754F0F /* CompareSchedule */,
 				7B1EC5C4255F2215001B6A4F /* Login */,
 				7B1EC5BF255F21B6001B6A4F /* Setting */,
 				7B1EC5B6255F20BB001B6A4F /* History */,
@@ -236,6 +244,7 @@
 		7B1EC587255F0AE2001B6A4F /* CreateSubject */ = {
 			isa = PBXGroup;
 			children = (
+				7B1EC5A4255F187F001B6A4F /* ElliotableViewModel.swift */,
 				7B1EC5B2255F1C9E001B6A4F /* Mocktable.swift */,
 				7B1EC588255F0AF5001B6A4F /* SelectSubjectViewModel.swift */,
 				7B1EC592255F0D31001B6A4F /* AddSubjectViewModel.swift */,
@@ -249,7 +258,6 @@
 				7B1EC5A1255F0F17001B6A4F /* Util */,
 				7B1EC58C255F0BE9001B6A4F /* CreateScheduleView.swift */,
 				7B1EC596255F0E2B001B6A4F /* AddSubjectView.swift */,
-				7B1EC5A4255F187F001B6A4F /* ElliotableViewModel.swift */,
 				7B1EC5AA255F1BC5001B6A4F /* SelectScheduleView.swift */,
 				7B1EC5AE255F1C7D001B6A4F /* Timetable.swift */,
 			);
@@ -300,6 +308,23 @@
 				7BFBC5EF25600A9F0059BDB2 /* Register.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		7B384F0E2567C3DE00754F0F /* CompareSchedule */ = {
+			isa = PBXGroup;
+			children = (
+				7B384F0F2567C55600754F0F /* CompareScheduleView.swift */,
+				7B384F18256801F800754F0F /* CompareScheduleDetailView.swift */,
+			);
+			path = CompareSchedule;
+			sourceTree = "<group>";
+		};
+		7B384F132567C5B400754F0F /* CompareSchedule */ = {
+			isa = PBXGroup;
+			children = (
+				7B384F142567C5D500754F0F /* CompareScheduleViewModel.swift */,
+			);
+			path = CompareSchedule;
 			sourceTree = "<group>";
 		};
 		7BFBC5E6255FDB270059BDB2 /* LoginAndRegis */ = {
@@ -451,6 +476,7 @@
 				7B1EC59A255F0E7B001B6A4F /* SearchBar.swift in Sources */,
 				7BFBC5F025600A9F0059BDB2 /* Register.swift in Sources */,
 				7B1EC58D255F0BE9001B6A4F /* CreateScheduleView.swift in Sources */,
+				7B384F19256801F800754F0F /* CompareScheduleDetailView.swift in Sources */,
 				7B1EC5A8255F193C001B6A4F /* ElliotableModel.swift in Sources */,
 				7B1EC5AB255F1BC5001B6A4F /* SelectScheduleView.swift in Sources */,
 				7BFBC6082562EB600059BDB2 /* Time.swift in Sources */,
@@ -461,6 +487,7 @@
 				7BFBC5FD2561C9980059BDB2 /* UserDB.swift in Sources */,
 				7B1EC59E255F0EAC001B6A4F /* SearchSubjectRow.swift in Sources */,
 				7B1EC55C255EE648001B6A4F /* Subject.swift in Sources */,
+				7B384F152567C5D500754F0F /* CompareScheduleViewModel.swift in Sources */,
 				7BFBC6052562EA730059BDB2 /* ScheduleApi.swift in Sources */,
 				7B1EC593255F0D31001B6A4F /* AddSubjectViewModel.swift in Sources */,
 				7B1EC565255EE6F1001B6A4F /* DB.swift in Sources */,
@@ -469,6 +496,7 @@
 				7B1EC585255EFBA5001B6A4F /* AllScheduleViewModel.swift in Sources */,
 				7B1EC578255EFA8F001B6A4F /* AllScheduleView.swift in Sources */,
 				7B1EC57B255EFACF001B6A4F /* EmptyRow.swift in Sources */,
+				7B384F102567C55700754F0F /* CompareScheduleView.swift in Sources */,
 				7BFBC60E256302D80059BDB2 /* ElliotableSchedule.swift in Sources */,
 				7B1EC540255EE542001B6A4F /* SketchduleApp.swift in Sources */,
 				7B1EC57E255EFB0A001B6A4F /* SubjectCard.swift in Sources */,

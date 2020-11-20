@@ -7,4 +7,5 @@ struct User: Decodable {
     var faculty: String
     var major: String
     var majorCode: String
+    var userId: String
 }

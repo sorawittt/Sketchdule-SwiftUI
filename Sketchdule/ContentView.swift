@@ -29,6 +29,11 @@ struct BottomBar : View {
                         Text("สร้างตารางเรียน")
                 }
                 
+                CompareScheduleView()
+                    .tabItem {
+                        Image(systemName: "person.2")
+                        Text("เปรียบเทียบ")
+                }
                 
                 SettingView()
                     .tabItem{
