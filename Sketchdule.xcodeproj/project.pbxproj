@@ -43,6 +43,8 @@
 		7B384F152567C5D500754F0F /* CompareScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B384F142567C5D500754F0F /* CompareScheduleViewModel.swift */; };
 		7B384F202568413100754F0F /* ShowCompareScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B384F1F2568413100754F0F /* ShowCompareScheduleView.swift */; };
 		7B384F232568468C00754F0F /* MockCompareScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B384F222568468C00754F0F /* MockCompareScheduleView.swift */; };
+		7BAFB3DB256ACECE00CCA218 /* CompareCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAFB3DA256ACECE00CCA218 /* CompareCard.swift */; };
+		7BAFB3DF256AD62200CCA218 /* EmptyCompareCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAFB3DE256AD62200CCA218 /* EmptyCompareCard.swift */; };
 		7BFBC5E8255FDB7A0059BDB2 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBC5E7255FDB7A0059BDB2 /* RegisterViewModel.swift */; };
 		7BFBC5EC255FE1E50059BDB2 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBC5EB255FE1E50059BDB2 /* Student.swift */; };
 		7BFBC5F025600A9F0059BDB2 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBC5EF25600A9F0059BDB2 /* Register.swift */; };
@@ -95,6 +97,8 @@
 		7B384F142567C5D500754F0F /* CompareScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareScheduleViewModel.swift; sourceTree = "<group>"; };
 		7B384F1F2568413100754F0F /* ShowCompareScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCompareScheduleView.swift; sourceTree = "<group>"; };
 		7B384F222568468C00754F0F /* MockCompareScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCompareScheduleView.swift; sourceTree = "<group>"; };
+		7BAFB3DA256ACECE00CCA218 /* CompareCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareCard.swift; sourceTree = "<group>"; };
+		7BAFB3DE256AD62200CCA218 /* EmptyCompareCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCompareCard.swift; sourceTree = "<group>"; };
 		7BFBC5E7255FDB7A0059BDB2 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		7BFBC5EB255FE1E50059BDB2 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		7BFBC5EF25600A9F0059BDB2 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
@@ -315,6 +319,7 @@
 		7B384F0E2567C3DE00754F0F /* CompareSchedule */ = {
 			isa = PBXGroup;
 			children = (
+				7BAFB3D9256ACBEA00CCA218 /* Util */,
 				7B384F0F2567C55600754F0F /* CompareScheduleView.swift */,
 				7B384F1F2568413100754F0F /* ShowCompareScheduleView.swift */,
 				7B384F222568468C00754F0F /* MockCompareScheduleView.swift */,
@@ -328,6 +333,15 @@
 				7B384F142567C5D500754F0F /* CompareScheduleViewModel.swift */,
 			);
 			path = CompareSchedule;
+			sourceTree = "<group>";
+		};
+		7BAFB3D9256ACBEA00CCA218 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				7BAFB3DA256ACECE00CCA218 /* CompareCard.swift */,
+				7BAFB3DE256AD62200CCA218 /* EmptyCompareCard.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		7BFBC5E6255FDB270059BDB2 /* LoginAndRegis */ = {
@@ -463,6 +477,7 @@
 				7BFBC60B2562FC890059BDB2 /* Course.swift in Sources */,
 				7B1EC569255EE7DC001B6A4F /* Schedule.swift in Sources */,
 				7BFBC5EC255FE1E50059BDB2 /* Student.swift in Sources */,
+				7BAFB3DB256ACECE00CCA218 /* CompareCard.swift in Sources */,
 				7BFBC5F3256128540059BDB2 /* LoginViewModel.swift in Sources */,
 				7BFBC5E8255FDB7A0059BDB2 /* RegisterViewModel.swift in Sources */,
 				7B1EC5A5255F187F001B6A4F /* ElliotableViewModel.swift in Sources */,
@@ -504,6 +519,7 @@
 				7BFBC60E256302D80059BDB2 /* ElliotableSchedule.swift in Sources */,
 				7B1EC540255EE542001B6A4F /* SketchduleApp.swift in Sources */,
 				7B1EC57E255EFB0A001B6A4F /* SubjectCard.swift in Sources */,
+				7BAFB3DF256AD62200CCA218 /* EmptyCompareCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

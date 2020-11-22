@@ -41,13 +41,13 @@ struct CompareScheduleView: View {
                                     }
                                 } else {
                                     Image(systemName: "minus.circle.fill").renderingMode(.template).foregroundColor(Color(UIColor.systemRed)).onTapGesture {
-                                        compareVM.removeUser(u: currentUser.id)
+                                        compareVM.removeUser(user: currentUser)
                                     }
                                 }
                             }
                         }
                     }
-                    if (compareVM.userList.count >= 2) {
+                    if (compareVM.userList.count > 0) {
                         Section(header: Text("รายชื่อผู้ใช้ที่ต้องการเปรียบเทียบ")) {
                             List {
                                 ForEach(compareVM.userList) { i in
@@ -56,7 +56,7 @@ struct CompareScheduleView: View {
                             }
                         }
                         Section {
-                            NavigationLink(destination: ShowCompareScheduleView(data: compareVM.getSelectUserSchedule())) {
+                            NavigationLink(destination: ShowCompareScheduleView()) {
                                     Text("เปรียบเทียบ").foregroundColor(Color(UIColor.systemBlue))
                                         .font(.system(size: 17))
                                 }
@@ -64,12 +64,12 @@ struct CompareScheduleView: View {
                     }
                 }
                 .navigationBarTitle("เปรียบเทียบตารางเรียน")
-            }
+                .onAppear() {
+                    compareVM.reset()
+                }
         }
     }
-
-
-
+}
 
 struct CompareScheduleView_Previews: PreviewProvider {
     static var previews: some View {

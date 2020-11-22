@@ -20,6 +20,7 @@ class CompareScheduleViewModel: ObservableObject {
     static let shared = CompareScheduleViewModel()
     var userDB = UserDB.shared
     @Published var userList = [UserDetail]()
+    @Published var compare = [ElliottEvent]()
     
     //27
     var time = ["8:00", "8:30", "9:00", "9:30", "10:00", "10:30" , "11:00", "11:30" , "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00"]
@@ -32,11 +33,11 @@ class CompareScheduleViewModel: ObservableObject {
     var sun = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     var days = [[Int]]()
     
+    
     init() {
         days = [mon, tue, wed, thu, fri, sat, sun]
-        let temp = UserDetail(firstname: userDB.firstname, lastname: userDB.lastname, studentId: userDB.studentId, id: userDB.userId)
-        userList.append(temp)
     }
+    
     
     func searchUser(u: String) -> UserDetail{
         let sem = DispatchSemaphore.init(value: 0)
@@ -67,15 +68,17 @@ class CompareScheduleViewModel: ObservableObject {
         if !(self.isContain(userId: user.id)) {
             userList.append(user)
         }
+        setSchedule(id: user.id, method: "add")
     }
-    
-    func removeUser(u: String) {
+
+    func removeUser(user: UserDetail) {
         userList = userList.filter() {
-            $0.id != u
+            $0.id != user.id
         }
+        setSchedule(id: user.id, method: "delete")
     }
-    
-    
+
+
     func isContain(userId: String) -> Bool {
         for u in userList {
             if u.id == userId {
@@ -89,14 +92,11 @@ class CompareScheduleViewModel: ObservableObject {
         userList = [UserDetail]()
     }
     
-    
-    func getSelectUserSchedule() -> [ElliottEvent] {
+    func setSchedule(id: String, method: String) {
         let sem = DispatchSemaphore.init(value: 0)
         var userIdList = [String]()
-        var max = userList.count
-        for u in userList {
-            userIdList.append(u.id)
-        }
+        let max = userList.count
+        userIdList.append(id)
         let json = ["userIdList": userIdList]
         let jsonData = try! JSONSerialization.data(withJSONObject: json)
 
@@ -135,8 +135,14 @@ class CompareScheduleViewModel: ObservableObject {
                         
                         for i in 0...self.time.count-1 {
                             if (start == self.time[i] || end == self.time[i] || inrange){
-                                if self.days[d][i] < max {
-                                    self.days[d][i] += 1
+                                if method == "add" {
+                                    if self.days[d][i] < max {
+                                        self.days[d][i] += 1
+                                    }
+                                } else if method == "delete" {
+                                    if self.days[d][i] > 0 {
+                                        self.days[d][i] -= 1
+                                    }
                                 }
                                 if start == self.time[i] {
                                     inrange = true
@@ -152,12 +158,26 @@ class CompareScheduleViewModel: ObservableObject {
         }
         task.resume()
         sem.wait()
-        
-        return toEllioSchedule()
     }
     
-    func toEllioSchedule() -> [ElliottEvent]{
-        var compare = [ElliottEvent]()
+    func getSchedule(day: Int) -> [ElliottEvent] {
+        if compare.isEmpty {
+            toEllioSchedule()
+        }
+        var temp = [ElliottEvent]()
+        for s in compare {
+            if s.courseDay == ElliotDay(rawValue: day) {
+                temp.append(s)
+            }
+        }
+        return temp
+    }
+    
+    func reset() {
+        compare = [ElliottEvent]()
+    }
+    
+    private func toEllioSchedule() {
         for d in 0...days.count - 1 {
             var lastTime = ""
             var lastCount = -1
@@ -189,6 +209,7 @@ class CompareScheduleViewModel: ObservableObject {
                 }
             }
         }
-        return compare
     }
+    
+    
 }

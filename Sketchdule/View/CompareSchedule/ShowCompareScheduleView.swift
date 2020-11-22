@@ -4,26 +4,38 @@ import SwiftUI
 import ElliotableSwiftUI
 
 struct ShowCompareScheduleView: View {
-    var data: [ElliottEvent]
+    @State private var selection = 0
+    private let days: [String] = ["จ", "อ", "พ", "พฤ", "ศ", "ส", "อา"]
+    private let select: [String] = ["วันจันทร์", "วันอังคาร", "วันพุธ", "วันพฤหัสบดี", "วันศุกร์", "วันเสาร์", "วันอาทิตย์"]
+    
+    let data = CompareScheduleViewModel.shared
+    
     var body: some View {
-        VStack {
-            Text("zzz")
-            generateTimetableView()
-        }
-    }
-    private func generateTimetableView() -> ElliotableView {
-        let temp = data
-        print(temp)
-        let daySymbols = ["จ", "อ", "พ", "พฤ", "ศ", "ส", "อา"]
-        let elliotableView = ElliotableView()
-        elliotableView.courseList(list: temp)
-        elliotableView.dayCount(count: 6)
-        elliotableView.daySymbols(symbols: daySymbols)
-        elliotableView.borderColor(color: Color(.sRGB, red: 0.7, green: 0.7, blue: 0.7, opacity: 1))
-        elliotableView.headerFont(font: .system(size: 14, weight: .bold))
-        elliotableView.symbolBackgroundColor(color: Color(.sRGB, red: 0.97, green: 0.97, blue: 0.97, opacity: 1))
-        elliotableView.timeHeaderTextColor(color: Color(.sRGB, red: 0.6, green: 0.6, blue: 0.6, opacity: 1))
-        return elliotableView
+            VStack(spacing: 15) {
+                Picker(selection: $selection, label: Text("")) {
+                    ForEach(0..<days.count, id: \.self) { index in
+                        Text(self.days[index]).tag(index)
+                        }
+                    }.pickerStyle(SegmentedPickerStyle())
+                
+                Text("ช่วงเวลาที่ไม่ว่าง")
+                    .foregroundColor(Color.gray)
+                    .font(.system(size: 18))
+                
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: 10) {
+                        let compare = data.getSchedule(day: selection)
+                        if compare.count > 0 {
+                            ForEach(compare, id: \.startTime) { c in
+                                CompareCard(subject: c)
+                            }
+                        } else {
+                            EmptyCompareCard()
+                        }
+                    }
+                }
+            }
+        .navigationBarTitle("ช่วงเวลาที่ไม่ว่าง")
     }
 }
 
